@@ -3,90 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>かけいのりこ｜迷ったらこれだけ。家計を変える2ステップ</title>
+<title>かけいのりこ｜おすすめの家計改善ツール</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-         background: #f4f9f4; color: #2a3a2a; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif;
+         background: #fff; color: #111; max-width: 480px; margin: 0 auto; }
 
-  .hero { background: linear-gradient(135deg, #3a7d44 0%, #1e4d28 100%);
-          color: white; text-align: center; padding: 40px 20px 30px; }
-  .hero .avatar { width: 80px; height: 80px; border-radius: 50%;
-                  border: 3px solid rgba(255,255,255,0.6);
-                  background: #4a9d54; display: inline-flex;
-                  align-items: center; justify-content: center;
-                  font-size: 32px; margin-bottom: 12px; }
-  .hero h1 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
-  .hero p { font-size: 13px; opacity: 0.9; line-height: 1.7; }
+  .profile { padding: 40px 24px 28px; border-bottom: 1px solid #f0f0f0; }
+  .profile-inner { display: flex; align-items: center; gap: 16px; }
+  .avatar { width: 56px; height: 56px; border-radius: 50%;
+            background: #e8f5e9; display: flex; align-items: center;
+            justify-content: center; font-size: 24px; flex-shrink: 0;
+            border: 1px solid #c8e6c9; }
+  .profile-text h1 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .profile-text p { font-size: 13px; color: #666; line-height: 1.5; }
 
-  .catch { background: #fff9e6; border-left: 4px solid #f5a623;
-           margin: 20px 16px 0; padding: 14px 16px; border-radius: 8px; }
-  .catch p { font-size: 14px; line-height: 1.7; color: #5a4a1a; }
-  .catch strong { color: #c07000; }
+  .note { margin: 20px 24px 0; padding: 14px 16px; background: #f9f9f9;
+          border-radius: 8px; font-size: 13px; color: #555; line-height: 1.6; }
 
-  .section { padding: 20px 16px 8px; }
-  .section-title { font-size: 13px; color: #5a8a5a; font-weight: bold;
-                   letter-spacing: 0.05em; margin-bottom: 14px; }
+  .section { padding: 24px 24px 0; }
+  .section-label { font-size: 11px; color: #999; letter-spacing: 0.08em;
+                   text-transform: uppercase; margin-bottom: 16px; }
 
-  .product-card { background: white; border-radius: 18px;
-                  overflow: hidden; box-shadow: 0 2px 14px rgba(40,100,50,0.10);
-                  margin-bottom: 18px; border: 1px solid #d4e8d4; }
-  .card-header { display: flex; align-items: center; gap: 12px;
-                 padding: 16px 16px 0; }
-  .step-badge { width: 40px; height: 40px; border-radius: 50%;
-                background: linear-gradient(135deg, #3a7d44, #1e4d28);
-                color: white; display: flex; align-items: center;
-                justify-content: center; font-size: 18px; font-weight: bold;
-                flex-shrink: 0; }
-  .badge-wrap { display: flex; flex-direction: column; }
-  .product-badge { display: inline-block; background: #e8f5e9; color: #2e7d32;
-                   font-size: 11px; font-weight: bold; padding: 2px 8px;
-                   border-radius: 20px; margin-bottom: 4px; width: fit-content; }
-  .product-name { font-size: 17px; font-weight: bold; color: #1a2a1a; }
-  .product-body { padding: 12px 16px 16px; }
-  .product-desc { font-size: 13px; color: #5a7a5a; line-height: 1.7;
+  .product-card { border: 1px solid #e8e8e8; border-radius: 12px;
+                  padding: 18px; margin-bottom: 12px; }
+  .product-header { display: flex; justify-content: space-between;
+                    align-items: flex-start; margin-bottom: 8px; }
+  .product-name { font-size: 15px; font-weight: 600; }
+  .product-tag { font-size: 11px; color: #2e7d32; font-weight: 500;
+                 background: #e8f5e9; padding: 2px 8px; border-radius: 20px; }
+  .product-desc { font-size: 13px; color: #666; line-height: 1.6;
                   margin-bottom: 14px; }
-  .btn-product { display: block; background: linear-gradient(135deg, #3a7d44, #1e4d28);
-                 color: white; text-align: center; padding: 14px;
-                 border-radius: 12px; font-size: 15px; font-weight: bold;
-                 text-decoration: none; letter-spacing: 0.03em; }
-  .btn-product:hover { opacity: 0.9; }
-  .btn-disabled { background: #c0c0c0; cursor: default; }
+  .btn { display: block; border: 1.5px solid #2e7d32; color: #2e7d32;
+         text-align: center; padding: 11px; border-radius: 8px;
+         font-size: 13px; font-weight: 500; text-decoration: none; }
+  .btn:hover { background: #f1f8f1; }
+  .btn-disabled { border-color: #ddd; color: #bbb; cursor: default; }
 
-  .note { text-align: center; font-size: 12px; color: #8aaa8a;
-          margin: 8px 16px 0; line-height: 1.6; }
-
-  .footer { text-align: center; padding: 28px 16px; font-size: 11px;
-            color: #8aaa8a; line-height: 1.8;
-            border-top: 1px solid #d4e8d4; margin-top: 16px; }
+  .footer { padding: 32px 24px; font-size: 11px; color: #bbb;
+            border-top: 1px solid #f0f0f0; margin-top: 24px; line-height: 1.7; }
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <div class="avatar">🌱</div>
-  <h1>かけいのりこ｜元銀行員・FP2級</h1>
-  <p>貯金ゼロ→年間100万節約を達成した主婦<br>お金は才能じゃなく仕組みで変わる</p>
-</div>
-
-<div class="catch">
-  <p>「NISAとかポイ活とか、<strong>情報が多すぎて何をすればいいかわからない</strong>」<br>
-  そういう方に向けて、<strong>これだけやればOK</strong>という2つを厳選しました。</p>
-</div>
-
-<div class="section">
-  <div class="section-title">💰 のりこが本気でおすすめする2ステップ</div>
-  <div id="product-list"></div>
+<div class="profile">
+  <div class="profile-inner">
+    <div class="avatar">🌱</div>
+    <div class="profile-text">
+      <h1>かけいのりこ</h1>
+      <p>元銀行員・FP2級保有の主婦<br>貯金ゼロから年100万節約を達成</p>
+    </div>
+  </div>
 </div>
 
 <div class="note">
-  ※ リンクはアフィリエイトリンクを含みます<br>
-  ※ 投資は元本保証ではありません。ご自身の判断で行ってください
+  NISAやポイ活、情報が多くて何から始めればいいかわからない方へ。私が実際に使っていて「これだけでいい」と思うものだけまとめました。
+</div>
+
+<div class="section" style="padding-top:24px;">
+  <div class="section-label">のりこのおすすめ</div>
+  <div id="product-list"></div>
 </div>
 
 <div class="footer">
-  かけいのりこ — 家計を救うFPの卵<br>
-  Threads: @noriko_finance
+  かけいのりこ — Threads @noriko_finance<br>
+  ※ページ内のリンクはアフィリエイトリンクを含みます<br>
+  ※投資は元本保証ではありません。ご自身の判断でご利用ください
 </div>
 
 <script src="noriko_data.js"></script>
@@ -98,19 +80,14 @@
       var card = document.createElement('div');
       card.className = 'product-card';
       card.innerHTML =
-        '<div class="card-header">' +
-          '<div class="step-badge">STEP<br>' + p.step + '</div>' +
-          '<div class="badge-wrap">' +
-            '<span class="product-badge">' + p.badge + '</span>' +
-            '<div class="product-name">' + p.name + '</div>' +
-          '</div>' +
+        '<div class="product-header">' +
+          '<div class="product-name">' + p.name + '</div>' +
+          '<span class="product-tag">' + p.badge + '</span>' +
         '</div>' +
-        '<div class="product-body">' +
-          '<div class="product-desc">' + p.description + '</div>' +
-          (hasUrl
-            ? '<a class="btn-product" href="' + p.url + '" target="_blank">🌱 詳しくはこちら</a>'
-            : '<div class="btn-product btn-disabled">準備中</div>') +
-        '</div>';
+        '<div class="product-desc">' + p.description + '</div>' +
+        (hasUrl
+          ? '<a class="btn" href="' + p.url + '" target="_blank">詳しくはこちら</a>'
+          : '<div class="btn btn-disabled">準備中</div>');
       container.appendChild(card);
     });
   }
